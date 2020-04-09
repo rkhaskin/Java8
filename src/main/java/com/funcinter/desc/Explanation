@@ -1,0 +1,19 @@
+https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
+
+Most stream operations accept some kind of lambda expression parameter, a functional interface specifying the exact 
+behavior of the operation. Most of those operations must be both non-interfering and stateless. What does that mean?
+
+A function is non-interfering when it does not modify the underlying data source of the stream, 
+e.g. in the above example no lambda expression does modify myList by adding or removing elements from the collection.
+
+A function is stateless when the execution of the operation is deterministic, 
+e.g. in the above example no lambda expression depends on any mutable variables or states from the outer scope 
+which might change during execution.
+
+FlatMap
+We've already learned how to transform the objects of a stream into another type of objects by utilizing the map operation. 
+Map is kinda limited because every object can only be mapped to exactly one other object. But what if we want to transform 
+one object into multiple others or none at all? This is where flatMap comes to the rescue.
+FlatMap transforms each element of the stream into a stream of other objects. So each object will be transformed into zero, 
+one or multiple other objects backed by streams. The contents of those streams will then be placed into 
+the returned stream of the flatMap operation.
