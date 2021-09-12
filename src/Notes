@@ -1,0 +1,41 @@
+OO Programming - Polymorphism. Without Polymorphism, Java would be Object based language, not Object oriented
+
+Functional Programming - functional composition with filter, map, reduce as a flow plus lazy evaluation.
+Laziness gives efficiency. Without laziness we wil lgo from collection , to collection, to more collections, creating objects and lists
+left and right unnecessarily. Lazy evaluation postpones object creation, so we are more efficient
+
+Lazy evaluation requires Purity of Functions.
+If not pure, you can not has lazy evaluation. If a function is has side effect, it is not pure.
+
+A pure function returns the same result on any number of times we call it with the same input. - Idempotency.
+Pure functions do not depend on anything that may possible change.
+
+forms of reduce: 
+reduce
+collect
+sum
+max - returns an Optional - collection may be empty
+min
+
+Collectors:
+  toList, toSet, toMap
+  joining
+  partitioningBy - splits collection into two parts (result is map with keys true and false)
+  groupingBy - splits a collection into multiple parts (result is a map)
+    -- comes in two flavors:
+    takes in a Function(<T, R>) and returns a Collector
+    takes in a Function(<T, R>, Collector) - recursive structure: performs grouping and then uses another collector,
+  mapping - does map inside a collector
+  flatMapping - does mapping inside a collector and then flattening the result 
+  map vs mapping: map - transformation is done inside stream; mapping - transformation is done in the middle of reduce
+  filter vs filtering - see map
+  counting - 
+  collectingAndThen - collect, then transform
+       
+  grouping mapping - (Function, Collector)
+  collectingAndThen(Collector, Function)
+  teeing -(Collector, Collector, Operation)  as Of java 12 - merges collectors together
+  flatMap - first you map, then you flatten the result
+  
+  
+    
